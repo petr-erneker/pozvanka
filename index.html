@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+ 
+
+<title>Pozvánka – Retro</title>
+
+ 
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+
+ 
+
+<style>
+
+:root{
+
+  --bg:#f2e6c9;
+
+  --ink:#3c2f2f;
+
+  --accent:#b85c2e;
+
+  --accent2:#2f6b3c;
+
+}
+
+html,body { margin:0; padding:0; }
+
+body {
+
+  background: radial-gradient(ellipse at top, #f8f0da, var(--bg) 60%, #eadcba 100%);
+
+  color: var(--ink);
+
+  font-family: 'Lora', serif;
+
+  display:flex;
+
+  justify-content:center;
+
+  padding:24px;
+
+}
+
+.card{
+
+  width:min(1200px, 96vw);
+
+  background:#fff9e9;
+
+  border:3px solid #a07a43;
+
+  border-radius:12px;
+
+  padding:34px 36px;
+
+  box-shadow:0 12px 40px rgba(60,47,47,.25);
+
+  position:relative;
+
+}
+
+.card:before{
+
+  content:'';
+
+  position:absolute;
+
+  inset:12px;
+
+  border:2px dashed #a07a43;
+
+  border-radius:10px;
+
+  pointer-events:none;
+
+  opacity:.7;
+
+}
+
+h1{
+
+  font-family:'Oswald', sans-serif;
+
+  text-transform:uppercase;
+
+  letter-spacing:2px;
+
+  margin:0;
+
+  font-size:clamp(28px,6vw,64px);
+
+  color:var(--accent2);
+
+}
+
+.kicker{font-size:clamp(16px,2.2vw,22px); margin-top:6px;}
+
+ 
+
+.grid{display:grid; grid-template-columns:repeat(2,1fr); gap:28px; margin-top:22px}
+
+.box{border:2px solid #a07a43; border-radius:10px; background:#fff4d8; padding:16px 18px;}
+
+.label{font-family:'Oswald'; text-transform:uppercase; font-size:14px; color:#7a5528;}
+
+.value{font-size:clamp(18px,2.2vw,26px); margin-top:6px;}
+
+.list{margin:6px 0 0; padding-left:18px}
+
+ 
+
+h2{
+
+  font-family:'Oswald';
+
+  text-transform:uppercase;
+
+  margin:20px 0 10px;
+
+  color:var(--accent);
+
+  letter-spacing:1px;
+
+}
+
+ 
+
+.counts{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+
+.ticker{
+
+  background:#3c2f2f;
+
+  color:#fff;
+
+  border-radius:10px;
+
+  padding:14px 16px;
+
+  box-shadow: inset 0 0 0 2px #231a1a;
+
+}
+
+.ticker h3{
+
+  margin:0 0 10px;
+
+  font-family:'Oswald';
+
+  font-size:18px;
+
+  text-transform:uppercase;
+
+  color:#ffdd9e;
+
+}
+
+.digits{display:flex; gap:10px;}
+
+.digit{
+
+  flex:1;
+
+  background:#241b1b;
+
+  border-radius:8px;
+
+  padding:10px 6px;
+
+  text-align:center;
+
+  border:1px solid #554040;
+
+}
+
+.n{font-family:'Oswald'; font-size:clamp(22px,4.6vw,42px);}
+
+.u{font-size:12px; opacity:.8}
+
+ 
+
+.footer{display:flex; justify-content:space-between; flex-wrap:wrap; margin-top:18px}
+
+.confirm{
+
+  background:var(--accent2);
+
+  color:#fff;
+
+  padding:12px 16px;
+
+  border-radius:8px;
+
+  text-decoration:none;
+
+  font-family:'Oswald';
+
+}
+
+.note{color:#7a5528;}
+
+ 
+
+@media(max-width:900px){
+
+  .grid{grid-template-columns:1fr;}
+
+  .counts{grid-template-columns:1fr;}
+
+}
+
+</style>
+
+ 
+
+</head>
+
+<body>
+
+ 
+
+<main class="card">
+
+<header>
+
+  <div>
+
+    <h1>Pozvánka na narozeninovou oslavu</h1>
+
+    <p class="kicker">Oslavíme <strong>50 let + 2 měsíce + 25 dní</strong> – aneb 18 348 dní / 440 352 hodin / 26 421 120 minut / 1 585 267 200 sekund života! 🎉</p>
+
+  </div>
+
+</header>
+
+ 
+
+<section class="grid">
+
+  <div class="box">
+
+    <div class="label">Kdy</div>
+
+    <div class="value"><strong>20. 6. 2026</strong></div>
+
+    <ul class="list">
+
+      <li><strong>Tenisový turnaj</strong> – sraz <strong>13:00</strong></li>
+
+      <li><strong>Narozeninová oslava</strong> – sraz <strong>16:00</strong></li>
+
+    </ul>
+
+  </div>
+
+ 
+
+  <div class="box">
+
+    <div class="label">Kde</div>
+
+    <div class="value"><strong>Areál tenisových kurtů Mohelnice</strong></div>
+
+    <ul class="list">
+
+      <li>Dress code: <strong>Streetwear</strong> nebo <strong>Casual</strong></li>
+
+    </ul>
+
+  </div>
+
+</section>
+
+ 
+
+<h2>Odpočítávání</h2>
+
+ 
+
+<section class="counts">
+
+  <div class="ticker" id="c1">
+
+    <h3>Do startu tenisového turnaje</h3>
+
+    <div class="digits">
+
+      <div class="digit"><div class="n" id="c1d">–</div><div class="u">Dny</div></div>
+
+      <div class="digit"><div class="n" id="c1h">–</div><div class="u">Hodiny</div></div>
+
+      <div class="digit"><div class="n" id="c1m">–</div><div class="u">Minuty</div></div>
+
+      <div class="digit"><div class="n" id="c1s">–</div><div class="u">Sekundy</div></div>
+
+    </div>
+
+  </div>
+
+ 
+
+  <div class="ticker" id="c2">
+
+    <h3>Do začátku oslavy</h3>
+
+    <div class="digits">
+
+      <div class="digit"><div class="n" id="c2d">–</div><div class="u">Dny</div></div>
+
+      <div class="digit"><div class="n" id="c2h">–</div><div class="u">Hodiny</div></div>
+
+      <div class="digit"><div class="n" id="c2m">–</div><div class="u">Minuty</div></div>
+
+      <div class="digit"><div class="n" id="c2s">–</div><div class="u">Sekundy</div></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+ 
+
+<section class="footer">
+
+  <div class="note"><h2>Prosím o potvrzení účasti 😊</h2></div>
+
+  <a class="confirm" href="mailto:petr.erneker@gmail.com?subject=Potvrzení účasti na oslavě">Potvrdit účast e‑mailem</a>
+
+</section>
+
+ 
+
+</main>
+
+ 
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+ 
+
+const target1 = new Date('2026-06-20T13:00:00+02:00');
+
+const target2 = new Date('2026-06-20T16:00:00+02:00');
+
+ 
+
+function update(id, target){
+
+  const now = new Date();
+
+  let diff = target - now;
+
+  if(diff < 0) diff = 0;
+
+ 
+
+  const d = Math.floor(diff / (1000*60*60*24));
+
+  const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+
+  const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+
+  const s = Math.floor((diff % (1000*60)) / 1000);
+
+ 
+
+  document.getElementById(id+"d").textContent = String(d).padStart(2,"0");
+
+  document.getElementById(id+"h").textContent = String(h).padStart(2,"0");
+
+  document.getElementById(id+"m").textContent = String(m).padStart(2,"0");
+
+  document.getElementById(id+"s").textContent = String(s).padStart(2,"0");
+
+}
+
+ 
+
+setInterval(() => {
+
+  update("c1", target1);
+
+  update("c2", target2);
+
+}, 1000);
+
+ 
+
+update("c1", target1);
+
+update("c2", target2);
+
+ 
+
+});
+
+</script>
+
+ 
+
+</body>
+
+</html>
+
