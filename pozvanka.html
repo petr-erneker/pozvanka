@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pozvánka – Retro s odpočtem (širší)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f2e6c9;           /* retro papír */
+    --ink:#3c2f2f;          /* tmavě hnědá */
+    --accent:#b85c2e;       /* cihlová */
+    --accent2:#2f6b3c;      /* zelená retro */
+  }
+  html,body{height:100%;}
+  body{
+    margin:0; background:radial-gradient(1400px 700px at 50% 0%, #f8f0da 0%, var(--bg) 60%, #eadcba 100%);
+    color:var(--ink); font-family:'Lora', serif; display:flex; align-items:center; justify-content:center; padding:24px;
+  }
+  .card{
+    width:min(1200px, 96vw); background:#fff9e9; box-shadow:0 12px 40px rgba(60,47,47,.25);
+    border:3px solid #a07a43; border-radius:12px; padding:34px 36px; position:relative;
+  }
+  .card:before{content:''; position:absolute; inset:12px; border:2px dashed #a07a43; border-radius:10px; pointer-events:none; opacity:.7;}
+  header{display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap;}
+  h1{font-family:'Oswald', sans-serif; letter-spacing:2px; text-transform:uppercase; font-weight:700; font-size: clamp(28px, 6vw, 64px); margin:0; color:var(--accent2);}  
+  .kicker{font-size: clamp(16px, 2.2vw, 22px); margin:6px 0 0; max-width:1300px}
+
+  .grid{display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:28px; margin-top:22px}
+  .box{border:2px solid #a07a43; border-radius:10px; padding:16px 18px; background:#fff4d8;}
+  .label{font-family:'Oswald'; text-transform:uppercase; letter-spacing:1px; color:#7a5528; font-weight:600; font-size:14px;}
+  .value{font-size: clamp(18px, 2.2vw, 26px); margin-top:6px;}
+  .list{margin:6px 0 0; padding-left:18px}
+
+  h2{font-family:'Oswald', sans-serif; text-transform:uppercase; letter-spacing:1px; margin:10px 0 12px; color:var(--accent);}  
+  .counts{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .ticker{background:#3c2f2f; color:#fff; border-radius:10px; padding:14px 16px; box-shadow: inset 0 0 0 2px #231a1a;}
+  .ticker h3{font-family:'Oswald'; margin:0 0 10px; letter-spacing:.5px; text-transform:uppercase; font-weight:600; font-size:18px; color:#ffdd9e}
+  .digits{display:flex; gap:10px;}
+  .digit{flex:1; background:#241b1b; border-radius:8px; padding:10px 6px; text-align:center; border:1px solid #554040;}
+  .n{font-family:'Oswald'; font-size: clamp(22px, 4.6vw, 42px); line-height:1;}
+  .u{font-size:12px; letter-spacing:.8px; text-transform:uppercase; opacity:.8}
+
+  .footer{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:18px; flex-wrap:wrap}
+  .confirm{background:var(--accent2); color:#fff; display:inline-block; padding:12px 16px; border-radius:8px; text-decoration:none; font-family:'Oswald'; letter-spacing:.5px; text-transform:uppercase;}
+  .note{color:#7a5528}
+
+  @media (max-width:900px){
+    .grid{grid-template-columns:1fr}
+    .counts{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+  <main class="card" role="article" aria-label="Pozvánka">
+    <header>
+      <div>
+		<br><br>
+        <h1>Pozvánka na narozeninovou oslavu</h1>
+        <p class="kicker">Oslavíme <strong>50 let + 2 měsíce + 25 dní</strong> – aneb 18 348 dní / 440 352 hodin / 26 421 120 minut / 1 585 267 200 sekund života!🎉</p>
+      </div>
+
+    </header>
+
+    <section class="grid">
+      <div class="box">
+        <div class="label">Kdy</div>
+        <div class="value"><strong>20. 6. 2026</strong></div>
+        <ul class="list">
+          <li><strong>Tenisový turnaj</strong> – sraz <strong>13:00</strong></li>
+          <li><strong>Narozeninová oslava</strong> – sraz <strong>16:00</strong></li>
+        </ul>
+      </div>
+      <div class="box">
+        <div class="label">Kde</div>
+        <div class="value"><strong>Areál tenisových kurtů Mohelnice</strong></div>
+		<ul class="list">
+          <li>Dress code: <strong>Streetwear</strong> nebo <strong>Casual</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <h2>Odpočítávání</h2>
+    <section class="counts" aria-label="Odpočítávání do začátku">
+      <div class="ticker" id="c1" aria-live="polite">
+        <h3>Do startu tenisového turnaje</h3>
+        <div class="digits">
+          <div class="digit"><div class="n" id="c1d">–</div><div class="u">Dny</div></div>
+          <div class="digit"><div class="n" id="c1h">–</div><div class="u">Hodiny</div></div>
+          <div class="digit"><div class="n" id="c1m">–</div><div class="u">Minuty</div></div>
+          <div class="digit"><div class="n" id="c1s">–</div><div class="u">Sekundy</div></div>
+        </div>
+      </div>
+      <div class="ticker" id="c2" aria-live="polite">
+        <h3>Do začátku oslavy</h3>
+        <div class="digits">
+          <div class="digit"><div class="n" id="c2d">–</div><div class="u">Dny</div></div>
+          <div class="digit"><div class="n" id="c2h">–</div><div class="u">Hodiny</div></div>
+          <div class="digit"><div class="n" id="c2m">–</div><div class="u">Minuty</div></div>
+          <div class="digit"><div class="n" id="c2s">–</div><div class="u">Sekundy</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="note"><h2>Prosím o potvrzení účasti 😊</h2></div>
+      <a class="confirm" href="mailto:petr.erneker@gmail.com?subject=Potvrzen%C3%AD%20%C3%BA%C4%8Dasti%20na%20oslav%C4%9B">Potvrdit účast e‑mailem</a>
+    </section>
+  </main>
+
+<script>
+// Cílové časy (lokální čas Evropa/Prague)
+const target1 = new Date('2026-06-20T13:00:00+02:00'); // tenis
+const target2 = new Date('2026-06-20T16:00:00+02:00'); // oslava
+
+function update(idPrefix, target){
+  const now = new Date();
+  let distance = target - now;
+  const ended = distance <= 0;
+  if(ended) distance = 0;
+  const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+  const m = Math.floor((distance % (1000*60*60)) / (1000*60));
+  const s = Math.floor((distance % (1000*60)) / 1000);
+  document.getElementById(idPrefix+'d').textContent = d.toString().padStart(2,'0');
+  document.getElementById(idPrefix+'h').textContent = h.toString().padStart(2,'0');
+  document.getElementById(idPrefix+'m').textContent = m.toString().padStart(2,'0');
+  document.getElementById(idPrefix+'s').textContent = s.toString().padStart(2,'0');
+  if(ended){
+    const box = document.getElementById(idPrefix==='c1'?'c1':'c2');
+    box.querySelector('h3').textContent = 'Oslava právě začíná!';
+  }
+}
+setInterval(()=>{update('c1', target1); update('c2', target2);}, 1000);
+update('c1', target1); update('c2', target2);
+</script>
+</body>
+</html>
